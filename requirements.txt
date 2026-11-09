@@ -1,0 +1,17 @@
+# Django==5.2.6
+# gunicorn==22.0.0
+# whitenoise
+# asgiref
+# # Include only the necessary app packages here:
+# django-simple-captcha
+# django-tailwind
+# requests
+# django-widget-tweaks
+Django
+whitenoise
+psycopg2-binary  # If you ever use Postgres
+django-tailwind
+python-dotenv
+django-simple-captcha
+django-widget-tweaks
+dj-database-url

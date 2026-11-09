@@ -1,0 +1,1511 @@
+
+{% load static %}
+{% comment %} {% tailwind_css %} {% endcomment %}
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayush Bhole | Data Scientist & Data Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#6ee7b7; 
+      --text:#e6eef6; --glass: rgba(255,255,255,0.03); --border: rgba(255,255,255,0.05);
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    section[id] {
+      scroll-margin-top: 80px; /* Adjust this value to be slightly more than your navbar's height */
+  }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:linear-gradient(180deg,#071226 0%, #071a2a 100%);color:var(--text);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    /* NAV */
+    header{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;
+      padding:14px 8vw;background:rgba(0,0,0,0.2);backdrop-filter:blur(10px);z-index:50}
+    .brand{font-weight:800;font-size:20px}
+    .brand span{color:var(--accent)}
+    .brand1 {
+    
+        color: white; 
+        font-size: 1.5rem;
+      }
+        
+      .green-text {
+        color: #7ef5c4; /* This is a good approximation of the green color */
+      }      
+
+
+      /*
+      Animation for the navigation bar to fade in and slide down
+      when the page first loads.
+    */
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Styles for the navigation links */
+    .nav-link {
+        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        position: relative;
+    }
+
+    /*
+      Highlight the active link by changing its color and adding an underline.
+    */
+    .nav-link.active {
+        color: #66fcf1;
+    }
+
+    .nav-link.active::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #66fcf1;
+        animation: underline 0.3s ease-out forwards;
+    }
+
+    @keyframes underline {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+    }
+    
+    /* Apply the animation to the navigation bar */
+    .navbar-animated {
+        animation: fadeInDown 0.5s ease-out forwards;
+    }
+  
+
+    /* HERO */
+    .hero{min-height:100vh;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+      padding:120px 8vw 60px;gap:40px} 
+    
+    .hero h1{font-size:42px;margin-bottom:12px}
+    .highlight{color:var(--accent)}
+    .hero p{max-width:600px;color:var(--muted)}
+    .cta{margin-top:20px}
+    .btn{display:inline-block;background:var(--accent);color:#02141a;padding:10px 20px;border-radius:12px;
+      font-weight:700;margin-right:10px;transition:.3s}
+    .btn:hover{transform:translateY(-2px)}
+    .ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+    .hero-card{background:var(--glass);border:1px solid var(--border);padding:20px;border-radius:14px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.4);animation:slideIn 1s ease forwards;opacity:0}
+    .chip{font-size:13px;color:var(--muted);margin-bottom:8px}
+    .skills li{list-style:none;margin:6px 0;font-weight:600}
+    /* Buttons */
+    .cta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    }
+
+    .btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease; /* This ensures a smooth animation */
+    }
+
+    .btn:hover {
+    transform: scale(1.1); /* This makes the button "pop" by 10% */
+    }
+
+    .btn.ghost {
+    background: transparent;
+    color: #7ef5c4;
+    border: 2px solid #7ef5c4;
+    }
+
+    .btn:not(.ghost) {
+    background-color: #7ef5c4;
+    color: #1a1a1a;
+    border: 2px solid #7ef5c4;
+    }
+
+    #home {
+        display: flex;
+        align-items: center; /* centers vertically */
+        justify-content: center;
+        min-height: 80vh; /* reduce from full screen */
+        padding: 40px 20px; /* smaller padding */
+      }
+      
+      #home .content {
+        text-align: left; /* keep text aligned */
+      }
+      
+      #home img {
+        max-width: 200px; /* reduce image size if needed */
+      }
+
+    /* Profile */
+    /* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  padding:120px 8vw 60px;
+  gap:40px;
+}
+/* Container for text and image */
+.hero-content {
+  display: flex;
+  flex-direction: column; /* Default for small screens */
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+} 
+
+.floating-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.floating-group input,
+.floating-group textarea {
+  width: 100%;
+  padding: 14px 12px;
+  font-size: 1rem;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background: #1f2833;
+  color: #fff;
+  outline: none;
+}
+
+.floating-group label {
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  font-size: 1rem;
+  color: #aaa;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background: #1f2833;
+  padding: 0 4px;
+}
+
+/* when input is focused or has value */
+.floating-group input:focus + label,
+.floating-group input:not(:placeholder-shown) + label,
+.floating-group textarea:focus + label,
+.floating-group textarea:not(:placeholder-shown) + label {
+  top: -8px;
+  font-size: 0.8rem;
+  color: #66fcf1;
+}
+* Input & Textarea Base */
+input, textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #555;
+  color: #fff;
+  font-size: 1rem;
+  padding: 14px 12px 6px 12px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #66fcf1;
+}
+
+/* Label Animation */
+label {
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  font-size: 1rem;
+  color: #999;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+/* When input is focused OR not empty */
+input:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:focus + label,
+textarea:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 8px;
+  font-size: 0.8rem;
+  color: #66fcf1;
+  background: #1f2833; /* matches your form background */
+  padding: 0 4px;
+}
+ 
+.intro {
+  text-align: center; /* Align text centrally on smaller screens */
+}
+/* Animations from your original code */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-in 1s forwards;
+}
+.fade:nth-child(2) { animation-delay: 0.5s; }
+.fade:nth-child(3) { animation-delay: 1s; }
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnimation 2s forwards;
+}
+@keyframes fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInAnimation {
+  to {
+    opacity: 1;
+  }
+}
+   .top-banner {
+    background: linear-gradient(90deg, #0f172a, #0a192f);
+    color: #e5e7eb;
+    padding: 6px 0;
+    font-size: 14px;
+    font-weight: 500;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+  }
+  
+  .top-banner p {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%; /* start from right */
+    animation: scroll-left 25s linear infinite; /* slower */
+  }
+  
+  .top-banner span {
+    color: #38ef7d; /* accent green */
+    font-weight: 600;
+  }
+  
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  header {
+    margin-top: 40px; /* keep navbar below banner */
+  }
+
+/* Profile Image */
+    .hero-image {
+    flex-shrink: 0;
+    animation-delay: 1.5s; /* Add a slight delay for the image to fade in */
+    }
+    .profile-pic {
+    width: 200px; /* Adjust size as needed */
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #7ef5c4;
+    box-shadow: 0 0 15px rgba(126, 245, 196, 0.5);
+    animation: pulse 2s infinite ease-in-out; /* Add a subtle pulse animation */
+    }
+    @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+    }
+
+    /* Media Query for Large Screens */
+    @media (min-width: 768px) {
+    .hero-content {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 5rem;
+    }
+    .intro {
+        text-align: left;
+    }
+    }
+    /* PANELS */
+    section{padding:80px 8vw}
+    h2{font-size:30px;margin-bottom:20px}
+    .cards{display:flex;gap:20px;flex-wrap:wrap}
+    .card{flex:1;min-width:260px;background:var(--glass);padding:20px;border-radius:14px;border:1px solid var(--border);
+      transition:.3s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.5)}
+    /* PROJECTS */
+    .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .project-card{background:var(--glass);border:1px solid var(--border);padding:20px;border-radius:14px;transition:.3s}
+    .project-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,0.5)}
+    .meta{font-size:13px;color:var(--muted);margin-top:6px}
+    .link{display:inline-block;margin-top:12px;color:var(--accent);font-weight:700}
+    /* CONTACT */
+    form input,form textarea{width:100%;padding:12px;margin-bottom:12px;border-radius:8px;
+      border:1px solid var(--border);background:transparent;color:var(--text)}
+    .form-actions{display:flex;gap:12px;flex-wrap:wrap}
+    /* FOOTER */
+    footer{padding:20px 8vw;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:14px}
+
+    /* Animations */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+    @keyframes slideIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+    .fade{animation:fadeUp 1s ease forwards}
+    .typewriter {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #38bdf8; /* Tailwind cyan-400 */
+        margin-bottom: 10px;
+      }
+      #roles::after {
+        content: '|';
+        animation: blink 0.7s infinite;
+        color: #38bdf8;
+      }
+      @keyframes blink {
+        50% { opacity: 0; }
+      }
+      
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes popIn {
+        0% { opacity: 0; transform: scale(0.8); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+      .animate-fade-in-up {
+        animation: fadeInUp 1s ease-out forwards;
+      }
+      .social-item {
+        opacity: 0;
+        animation: popIn 0.6s ease-out forwards;
+      }
+      .social-item:nth-child(1) { animation-delay: 0.3s; }
+      .social-item:nth-child(2) { animation-delay: 0.6s; }
+      .social-item:nth-child(3) { animation-delay: 0.9s; }
+      .social-item:nth-child(4) { animation-delay: 1.2s; }
+      .social-item:nth-child(5) { animation-delay: 1.5s; }
+
+      .social-icon {
+        transition: transform 0.3s ease, filter 0.3s ease;
+      }
+      
+      .social-item:hover .social-icon {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 8px #66fcf1);
+      }
+      
+      .social-item span {
+        transition: color 0.3s ease;
+      }
+      
+      .social-item:hover span {
+        color: #66fcf1;
+      }
+
+
+
+      /* Sidebar Animation Styles */
+.sidebar-hidden {
+    transform: translateX(-100%);
+}
+
+.sidebar-visible {
+    transform: translateX(0);
+}
+
+.sidebar-transition {
+    transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Individual icon animations for staggered effect */
+.social-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s ease-out;
+}
+
+.social-item.animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Stagger delays for each icon */
+.social-item:nth-child(1) { transition-delay: 0.1s; }
+.social-item:nth-child(2) { transition-delay: 0.2s; }
+.social-item:nth-child(3) { transition-delay: 0.3s; }
+.social-item:nth-child(4) { transition-delay: 0.4s; }
+
+#social-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.7s ease-out;
+}
+    /* Responsive */
+    @media(max-width:768px){.hero{flex-direction:column;text-align:center}}
+
+  </style>
+</head>
+<body>
+     
+  
+    <div class="top-banner">
+        <p>🚀 Building robust data solutions to drive business growth | Open to connect with like-minded professionals! 🧑‍💻</p>
+    </div> 
+  <header>
+
+    <a href="#home">
+        <div class="brand1">
+            <span class="white-text">PORT</span><span class="green-text">FOLIO</span>
+        </div>
+    </a>
+
+    <nav id="navbar" class="navbar-animated flex space-x-8">
+      <a href="#home" class="nav-link text-white hover:text-[#66fcf1] hover:scale-110">Home</a>
+      <a href="#about" class="nav-link text-white hover:text-[#66fcf1] hover:scale-110">About</a>
+      <a href="#projects" class="nav-link text-white hover:text-[#66fcf1] hover:scale-110">Projects</a>
+      <a href="#contact" class="nav-link text-white hover:text-[#66fcf1] hover:scale-110">Contact</a>
+    </nav> 
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const navLinks = document.querySelectorAll('.nav-link');
+          const sections = document.querySelectorAll('section[id]');
+          let isClicking = false; // Flag to check if a link was clicked
+
+          // Function to update the active class based on scroll position
+          const updateActiveLink = () => {
+              // Only run if the user is scrolling manually, not from a click
+              if (!isClicking) {
+                  const currentScroll = window.scrollY;
+
+                  sections.forEach(section => {
+                      const sectionTop = section.offsetTop - 100; // Offset to activate a bit earlier
+                      const sectionHeight = section.clientHeight;
+                      const sectionId = section.getAttribute('id');
+
+                      if (currentScroll >= sectionTop && currentScroll < sectionTop + sectionHeight) {
+                          navLinks.forEach(link => {
+                              link.classList.remove('active');
+                          });
+                          
+                          const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                          if (activeLink) {
+                              activeLink.classList.add('active');
+                          }
+                      }
+                  });
+              }
+          };
+
+          // Add event listeners
+          window.addEventListener('scroll', updateActiveLink);
+          
+          // Handle clicks and disable the scroll listener temporarily
+          navLinks.forEach(link => {
+              link.addEventListener('click', () => {
+                  isClicking = true;
+                  navLinks.forEach(item => item.classList.remove('active'));
+                  link.classList.add('active');
+
+                  // Re-enable the scroll listener after the scroll animation is complete
+                  setTimeout(() => {
+                      isClicking = false;
+                  }, 1000); // Wait for 1 second to ensure the scroll has finished
+              });
+          });
+
+          // Run on page load to set the initial active link
+          updateActiveLink();
+      });
+    </script>
+
+    {% comment %} <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav> {% endcomment %}
+   </header>
+
+
+  {% comment %} <section id="home" class="hero">
+    <div>
+      <h1 class="fade">Hi — I'm <span class="highlight">Ayush</span></h1>
+      <p class="fade">Data Scientist & Data Engineer building pipelines, scalable platforms, and ML solutions that impact businesses.</p>
+      <div class="cta fade">
+        <a href="#projects" class="btn">See Projects</a>
+        <a href="#contact" class="btn ghost">Contact</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="chip">Skills</div>
+      <ul class="skills">
+        <li>Python • SQL • Spark</li>
+        <li>Airflow • Docker • Kubernetes</li>
+        <li>TensorFlow • PyTorch • scikit-learn</li>
+        <li>BigQuery • Redshift • Postgres</li>
+      </ul>
+    </div>
+  </section> {% endcomment %}
+
+
+
+<!-- Animated Sidebar -->
+<div id="social-sidebar" class="fixed top-1/2 left-0
+            flex flex-col items-center space-y-5
+            bg-[#1f2833]/95 backdrop-blur-md 
+            px-2 py-4 rounded-r-2xl shadow-lg z-50
+            sidebar-hidden sidebar-transition">
+
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/in/ayushbhole26" target="_blank" class="group social-item">
+        <img src="{% static 'icons/linkedin.png' %}" 
+             alt="LinkedIn" 
+             class="w-8 h-8 transition-transform duration-300 group-hover:scale-125">
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/your-profile" target="_blank" class="group social-item">
+        <img src="{% static 'icons/github.png' %}" 
+             alt="GitHub" 
+             class="w-8 h-8 transition-transform duration-300 group-hover:scale-125">
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/your-number" target="_blank" class="group social-item">
+        <img src="{% static 'icons/whatsapp.png' %}" 
+             alt="WhatsApp" 
+             class="w-8 h-8 transition-transform duration-300 group-hover:scale-125">
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:ayushbhole2602@gmail.com" target="_blank" class="group social-item">
+        <img src="{% static 'icons/gmail.png' %}" 
+             alt="Email" 
+             class="w-8 h-8 transition-transform duration-300 group-hover:scale-125">
+    </a>
+</div>
+
+<script>
+  // Simple sidebar animation
+  document.addEventListener('DOMContentLoaded', function() {
+      const sidebar = document.getElementById('social-sidebar');
+      
+      // Add transition class
+      sidebar.classList.add('sidebar-transition');
+      
+      // Animate after page load
+      setTimeout(function() {
+          sidebar.style.transform = 'translateX(0)';
+      }, 800);
+  });
+</script>
+
+
+  {% comment %} <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="intro">
+        <h1 class="fade">Hi — I'm <span class="highlight">Ayush</span></h1>
+        <p class="fade">Data Scientist & Data Engineer building pipelines, scalable platforms, and ML solutions that impact businesses.</p>
+        <div class="cta fade">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="{% static 'resume.pdf' %}" class="btn ghost" download>Download CV</a>
+      </div>
+      
+      <div class="hero-image fade-in">
+        <img src="{% static '/static/images/profile.JPG' %}" alt="Ayush" class="profile-pic">
+      </div>
+    </div>dsdf
+    
+  </section> {% endcomment %}
+
+{% tailwind_css %}
+
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+        <div class="hero-image fade-in">
+            {% comment %} <img src="{% static 'images/profile1.jpg' %}" alt="Ayush" class="profile-pic"> {% endcomment %}
+            <img src="{% static 'images/profile1.JPG' %}" alt="Ayush" class="profile-pic">
+        </div>
+      <div class="intro">
+        <h1 class="fade">Ayush Bhole</h1>
+        <h2 class="typewriter">
+            <span id="roles"></span>
+          </h2>
+    
+        <p class="fade">Data Scientist & Data Engineer building pipelines, scalable platforms, and ML solutions that impact businesses.</p>
+        <div class="cta fade">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="{% static 'resume.pdf' %}" class="btn ghost" download>Download CV</a>
+        </div>
+        
+      </div>
+    </div>
+  </section> 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const roles = ["Data Scientist", "Data Engineer", "AI Enthusiast", "Problem Solver"];
+      let i = 0, j = 0, isDeleting = false;
+      const speed = 150, eraseSpeed = 400, delay = 0;
+      const el = document.getElementById("roles");
+  
+      function typeWriter() {
+        if (i < roles.length) {
+          if (!isDeleting && j <= roles[i].length) {
+            el.innerHTML = roles[i].substring(0, j++);
+          } else if (isDeleting && j >= 0) {
+            el.innerHTML = roles[i].substring(0, j--);
+          }
+  
+          if (j === roles[i].length) {
+            isDeleting = true;
+            setTimeout(typeWriter, delay);
+            return;
+          } else if (isDeleting && j === 0) {
+            isDeleting = false;
+            i++;
+            if (i === roles.length) i = 0;
+          }
+        }
+        setTimeout(typeWriter, isDeleting ? eraseSpeed : speed);
+      }
+      typeWriter();
+    });
+  </script>
+
+  {% comment %} <div class="hero-card">
+    <div class="chip">Skills</div>
+    <ul class="skills">
+      <li>Python • SQL • Spark</li>
+      <li>Airflow • Docker • Kubernetes</li>
+      <li>TensorFlow • PyTorch • scikit-learn</li>
+      <li>BigQuery • Redshift • Postgres</li>
+    </ul>
+  </div> {% endcomment %}
+
+
+
+
+<section id="about" class="py-20 bg-navyblue text-[#c5c6c7]">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6 items-start">
+
+    <!-- LEFT SIDE: Heading + About Text -->
+    <div>
+      <h2 class="text-4xl font-bold text-white mb-6">About Me</h2>
+      
+      <p class="text-lg leading-relaxed mb-6 text-justify">
+        I'm <span class="text-[#45a29e] font-semibold">Ayush Bhole</span>, a versatile and ambitious professional with a 
+        <span class="font-semibold">Master’s in Data Science</span> from Symbiosis Skills and Professional University 
+        and a <span class="font-semibold">Bachelor's in Computer Science</span>. With a strong academic foundation, I bring 
+        both technical depth and problem-solving creativity to every project I work on.
+      </p>
+
+      <p class="text-lg leading-relaxed mb-6 text-justify">
+        I specialize in <span class="text-[#45a29e] font-semibold">SQL, Python, Tableau, Power BI, and Excel</span>, supported 
+        by a solid understanding of <span class="text-[#45a29e] font-semibold">machine learning, data analysis, and statistical modeling</span>. 
+        Beyond data, I have hands-on experience in <span class="text-[#45a29e] font-semibold">building websites and software applications</span>, 
+        enabling me to deliver end-to-end solutions that bridge analytics, development, and business needs.
+      </p>
+
+      <p class="text-lg leading-relaxed mb-6 text-justify">
+        My academic and project work spans across <span class="text-[#45a29e] font-semibold">data science, web development, and software engineering</span>. 
+        This multidisciplinary expertise reflects my adaptability and curiosity to explore multiple domains. I am passionate about creating 
+        <span class="text-[#45a29e] font-semibold">data-driven insights</span> and applying <span class="text-[#45a29e] font-semibold">technical development skills</span> 
+        to design practical, scalable, and impactful solutions that solve real-world problems.
+      </p>
+
+      <p class="text-lg leading-relaxed mb-6 text-justify">
+        As a professional at the intersection of <span class="text-[#45a29e] font-semibold">data science and software development</span>, 
+        I constantly seek opportunities to grow, innovate, and contribute. My goal is to transform raw data into meaningful outcomes, 
+        develop applications that enhance user experiences, and leverage technology to create measurable value in diverse industries.
+      </p>
+
+      <!-- Button -->
+      <a href="#skills"
+        class="inline-block mt-6 px-6 py-3 rounded-2xl bg-[#45a29e] text-black font-semibold shadow-lg hover:scale-105 transition transform duration-300">
+        View My Skills
+      </a>
+    </div>
+
+    <!-- RIGHT SIDE: Skill Cards -->
+    <div class="space-y-6">
+      <!-- Data Science Card -->
+      <div class="bg-[#1f2833] rounded-xl shadow-lg p-8 hover:scale-105 transition transform duration-300">
+        <h3 class="text-2xl font-semibold text-[#45a29e] mb-6">Data Science</h3>
+        <ul class="space-y-4 text-gray-300 list-disc pl-5">
+          <li>Feature Engineering & Model Deployment</li>
+          <li>A/B Testing & Performance Monitoring</li>
+          <li>Model Interpretability & Explainability</li>
+          <li>Predictive & Prescriptive Analytics</li>
+        </ul>
+      </div>
+
+      <!-- Data Engineering Card -->
+      <div class="bg-[#1f2833] rounded-xl shadow-lg p-8 hover:scale-105 transition transform duration-300">
+        <h3 class="text-2xl font-semibold text-[#45a29e] mb-6">Data Engineering</h3>
+        <ul class="space-y-4 text-gray-300 list-disc pl-5">
+          <li>ETL/ELT Pipeline Development</li>
+          <li>Real-time Data Streaming & Warehousing</li>
+          <li>Cost Optimization & Observability</li>
+          <li>Cloud-based Data Infrastructure</li>
+        </ul>
+      </div>
+
+      <!-- Key Highlights Card -->
+      <div class="bg-[#1f2833] rounded-xl shadow-lg p-8 text-left hover:scale-105 transition transform duration-300">
+        <h3 class="text-2xl font-semibold text-[#45a29e] mb-6">Key Highlights</h3>
+        <ul class="space-y-4 text-gray-300">
+          <li class="flex items-start">
+            <span class="text-[#45a29e] mr-3">🎓</span> Master’s in Data Science & Bachelor’s in Computer Science
+          </li>
+          <li class="flex items-start">
+            <span class="text-[#45a29e] mr-3">🛠️</span> Skilled in SQL, Python, Tableau, Power BI, Excel
+          </li>
+          <li class="flex items-start">
+            <span class="text-[#45a29e] mr-3">🤖</span> Knowledge of ML, Data Analysis & Statistical Modeling
+          </li>
+          <li class="flex items-start">
+            <span class="text-[#45a29e] mr-3">💻</span> Built websites & software applications
+          </li>
+          <li class="flex items-start">
+            <span class="text-[#45a29e] mr-3">🌍</span> Academic projects in Data Science, Web Dev & Software Engineering
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<section id="about" class="py-20 bg-navyblue text-[#c5c6c7]">
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6 items-start">
+
+    <!-- LEFT SIDE: Heading + About Text -->
+    <div>
+      <h2 class="text-4xl font-bold text-white mb-6">About Me</h2>
+      
+      <p class="text-lg leading-relaxed mb-6 text-justify">
+        I'm <span class="text-[#45a29e] font-semibold">Ayush Bhole</span>, a versatile and ambitious professional with a 
+        <span class="font-semibold">Master’s in Data Science</span> from Symbiosis Skills and Professional University 
+        and a <span class="font-semibold">Bachelor's in Computer Science</span>. With a strong academic foundation, I bring 
+        both technical depth and problem-solving creativity to every project I work on.
+      </p>
+
+      <p class="text-lg leading-relaxed mb-6 text-justify">
+        I specialize in <span class="text-[#45a29e] font-semibold">SQL, Python, Tableau, Power BI, and Excel</span>, supported 
+        by a solid understanding of <span class="text-[#45a29e] font-semibold">machine learning, data analysis, and statistical modeling</span>. 
+        Beyond data, I have hands-on experience in <span class="text-[#45a29e] font-semibold">building websites and software applications</span>, 
+        enabling me to deliver end-to-end solutions that bridge analytics, development, and business needs.
+      </p>
+
+      <p class="text-lg leading-relaxed mb-6 text-justify">
+        My academic and project work spans across <span class="text-[#45a29e] font-semibold">data science, web development, and software engineering</span>. 
+        This multidisciplinary expertise reflects my adaptability and curiosity to explore multiple domains. I am passionate about creating 
+        <span class="text-[#45a29e] font-semibold">data-driven insights</span> and applying <span class="text-[#45a29e] font-semibold">technical development skills</span> 
+        to design practical, scalable, and impactful solutions that solve real-world problems.
+      </p>
+
+      <p class="text-lg leading-relaxed mb-6 text-justify">
+        As a professional at the intersection of <span class="text-[#45a29e] font-semibold">data science and software development</span>, 
+        I constantly seek opportunities to grow, innovate, and contribute. My goal is to transform raw data into meaningful outcomes, 
+        develop applications that enhance user experiences, and leverage technology to create measurable value in diverse industries.
+      </p>
+
+      <!-- Button (Triggers Modal) -->
+      <button id="view-skills-button"
+        class="inline-block mt-6 px-6 py-3 rounded-2xl bg-[#45a29e] text-black font-semibold shadow-lg hover:scale-105 transition transform duration-300">
+        View My Skills
+      </button>
+    </div>
+
+    <!-- RIGHT SIDE: Skill Cards -->
+    <div class="space-y-6">
+      <!-- Data Science Card -->
+      <div class="bg-[#1f2833] rounded-xl shadow-lg p-8 hover:scale-105 transition transform duration-300">
+        <h3 class="text-2xl font-semibold text-[#45a29e] mb-6">Data Science</h3>
+        <ul class="space-y-4 text-gray-300 list-disc pl-5">
+          <li>Feature Engineering & Model Deployment</li>
+          <li>A/B Testing & Performance Monitoring</li>
+          <li>Model Interpretability & Explainability</li>
+          <li>Predictive & Prescriptive Analytics</li>
+        </ul>
+      </div>
+
+      {% comment %} <!-- Data Engineering Card -->
+      <div class="bg-[#1f2833] rounded-xl shadow-lg p-8 hover:scale-105 transition transform duration-300">
+        <h3 class="text-2xl font-semibold text-[#45a29e] mb-6">Data Engineering</h3>
+        <ul class="space-y-4 text-gray-300 list-disc pl-5">
+          <li>ETL/ELT Pipeline Development</li>
+          <li>Real-time Data Streaming & Warehousing</li>
+          <li>Cost Optimization & Observability</li>
+          <li>Cloud-based Data Infrastructure</li>
+        </ul>
+      </div> {% endcomment %}
+      <div class="bg-[#1f2833] rounded-xl shadow-lg p-8 hover:scale-105 transition transform duration-300">
+        <h3 class="text-2xl font-semibold text-[#45a29e] mb-6">Hobbies & Interests</h3>
+        <ul class="space-y-4 text-gray-300 list-disc pl-5">
+          <li>Playing football and badminton – enhancing teamwork, agility, and strategic thinking.</li>
+          <li>📚 Reading books on technology & self-growth</li>
+          <li>🎶 Exploring music for creativity & focus</li>
+          <li>🌍 Passion for exploring new cultures & ideas</li>
+          <li>💡 Building side projects to learn new tech</li>
+        </ul>
+      </div>
+
+      <!-- Key Highlights Card -->
+      <div class="bg-[#1f2833] rounded-xl shadow-lg p-8 text-left hover:scale-105 transition transform duration-300">
+        <h3 class="text-2xl font-semibold text-[#45a29e] mb-6">Key Highlights</h3>
+        <ul class="space-y-4 text-gray-300">
+          <li class="flex items-start"><span class="text-[#45a29e] mr-3">🎓</span> Master’s in Data Science & Bachelor’s in Computer Science</li>
+          <li class="flex items-start"><span class="text-[#45a29e] mr-3">🛠️</span> Skilled in SQL, Python, Tableau, Power BI, Excel</li>
+          <li class="flex items-start"><span class="text-[#45a29e] mr-3">🤖</span> Knowledge of ML, Data Analysis & Statistical Modeling</li>
+          <li class="flex items-start"><span class="text-[#45a29e] mr-3">💻</span> Built websites & software applications</li>
+          <li class="flex items-start"><span class="text-[#45a29e] mr-3">🌍</span> Academic projects in Data Science, Web Dev & Software Engineering</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Modal -->
+<div id="skills-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
+  <div class="bg-[#1f2833] rounded-xl shadow-lg p-8 w-11/12 md:w-2/3 lg:w-1/2 text-white relative transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+    <!-- Close Button -->
+    <button id="close-modal" class="absolute top-3 right-3 text-2xl text-gray-400 hover:text-white">&times;</button>
+    
+    <h2 class="text-3xl font-bold text-[#45a29e] mb-6">My Skills</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <ul class="space-y-3">
+        <li>✅ SQL</li>
+        <li>✅ Python</li>
+        <li>✅ Tableau</li>
+        <li>✅ Power BI</li>
+        <li>✅ Excel</li>
+      </ul>
+      <ul class="space-y-3">
+        <li>✅ Machine Learning</li>
+        <li>✅ Data Analysis</li>
+        <li>✅ Statistical Modeling</li>
+        <li>✅ Web Development</li>
+        <li>✅ Software Applications</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript for Modal -->
+<script>
+  const modal = document.getElementById('skills-modal');
+  const modalContent = document.getElementById('modal-content');
+  const openBtn = document.getElementById('view-skills-button');
+  const closeBtn = document.getElementById('close-modal');
+
+  openBtn.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+      modalContent.classList.remove('scale-95', 'opacity-0');
+      modalContent.classList.add('scale-100', 'opacity-100');
+    }, 10);
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modalContent.classList.add('scale-95', 'opacity-0');
+    modalContent.classList.remove('scale-100', 'opacity-100');
+    setTimeout(() => {
+      modal.classList.add('hidden');
+    }, 300);
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modalContent.classList.add('scale-95', 'opacity-0');
+      modalContent.classList.remove('scale-100', 'opacity-100');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} 
+  <section id="about">
+    <h2>About</h2>
+    <p>I design and deliver end-to-end data products — from raw data streams to analytical dashboards and machine learning models in production. Passionate about scalable pipelines, reliability, and measurable impact.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Data Science</h3>
+        <p>Feature engineering, model training & deployment, A/B testing, monitoring, and interpretability.</p>
+      </div>
+      <div class="card">
+        <h3>Data Engineering</h3>
+        <p>ETL/ELT pipelines, streaming data, warehouse design, cost optimization, and observability.</p>
+      </div>
+    </div>
+  </section>  {% endcomment %}
+  {% comment %} <section id="about">
+    <h2 class="text-4xl font-bold text-white mb-8">About</h2>
+    <p>I design and deliver end-to-end data products — from raw data streams to analytical dashboards and machine learning models in production. Passionate about scalable pipelines, reliability, and measurable impact.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Data Science</h3>
+        <p>Feature engineering, model training & deployment, A/B testing, monitoring, and interpretability.</p>
+      </div>
+      <div class="card">
+        <h3>Data Engineering</h3>
+        <p>ETL/ELT pipelines, streaming data, warehouse design, cost optimization, and observability.</p>
+      </div>
+    </div>
+    <button id="view-skills-button" 
+        class="mt-10 bg-[#66fcf1] text-black px-8 py-3 rounded-full font-semibold hover:bg-white hover:scale-105 transition">
+        View My Skills
+      </button>
+    </div>
+  </section>
+  {% endcomment %}
+
+
+
+{% comment %} 
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Real-time Recommendation Engine</h3>
+        <p>Built a low-latency recommender using Kafka + Spark Streaming; improved CTR by 18%.</p>
+        <p class="meta">Tech: Spark, Kafka, Redis, Flask</p>
+        <a class="link" href="#contact">Discuss</a>
+      </div>
+      <div class="project-card">
+        <h3>Data Warehouse Migration</h3>
+        <p>Migrated on-prem Postgres to BigQuery with Airflow orchestration; ETL 4x faster.</p>
+        <p class="meta">Tech: BigQuery, Airflow, DBT</p>
+        <a class="link" href="#contact">Read Case</a>
+      </div>
+      <div class="project-card">
+        <h3>Customer Churn Pipeline</h3>
+        <p>End-to-end ML pipeline with feature store, CI/CD for models, and drift monitoring.</p>
+        <p class="meta">Tech: MLflow, Seldon, Prometheus</p>
+        <a class="link" href="#contact">View</a>
+      </div>
+      <div class="project-card">
+        <h3>Data Quality Framework</h3>
+        <p>Implemented automated validation with Great Expectations integrated with Slack alerts.</p>
+        <p class="meta">Tech: Great Expectations, Airflow</p>
+        <a class="link" href="#contact">Details</a>
+      </div>
+    </div>
+  </section>
+ {% endcomment %}
+
+
+
+
+
+
+
+
+
+  <section id="projects" class="py-20 bg-navyblue text-[#c5c6c7]">
+    <div class="max-w-6xl mx-auto px-6">
+  
+      <!-- LEFT-ALIGNED HEADING + INTRO -->
+      <div class="mb-12">
+        <h2 class="text-4xl font-bold text-white mb-6 text-left">Projects</h2>
+        {% comment %} <p class="text-lg leading-relaxed text-justify max-w-3xl">
+          Here are some of my key projects that highlight my expertise in 
+          <span class="text-[#45a29e] font-semibold">data science, data engineering, and machine learning pipelines</span>. 
+          Each project demonstrates my ability to solve real-world challenges with 
+          <span class="text-[#45a29e] font-semibold">scalable, efficient, and impactful solutions</span>.
+        </p> {% endcomment %}
+      </div>
+  
+      <!-- PROJECT GRID -->
+      <div class="grid md:grid-cols-2 gap-8">
+  
+        <!-- Project Card -->
+        <div class="bg-[#1f2833] rounded-xl shadow-lg p-8 hover:scale-105 transition transform duration-300">
+          <h3 class="text-2xl font-semibold text-[#66fcf1] mb-4 text-left">Solar Radiation Prediction Using Machine Learning</h3>
+          <p class="mb-3">Built a robust model for Solar Radiation Prediction by employing advanced machine learning techniques, including XGBoost, Random Forest, and Neural Networks. The study maximized accuracy using intensive Feature Engineering (lag values, rolling statistics) and AutoML Optimization (H2O.ai).</p>
+          <p class="text-sm text-gray-400 mb-4">Tech: Python, Machine Learning, Auto-ML</p>
+          <a href="https://github.com/ayushbhole/Solar-Raidation-Prediction-Using-Machine-Learning" target="_blank" class="inline-block bg-[#66fcf1] text-black font-medium px-4 py-2 rounded-lg hover:bg-[#45c9c2] transition">
+            🔗 View on GitHub
+            </a>
+        </div>
+
+        
+  
+        <!-- Project Card -->
+        <div class="bg-[#1f2833] rounded-xl shadow-lg p-8 hover:scale-105 transition transform duration-300">
+          <h3 class="text-2xl font-semibold text-[#66fcf1] mb-4 text-left">Super Store Sales Performance Dashboard</h3>
+          <p class="mb-3">This Power BI dashboard provides a high-level overview of key business metrics for a super store. 
+            It tracks essential performance indicators such as total profit, quantity sold, and product count. 
+            The dashboard features a regional analysis, with a focus on the Central region,
+             and includes a sales trend visualization by month to monitor performance over time.</p>
+          <p class="text-sm text-gray-400 mb-4">Tech: Power BI</p>
+          <a href="https://github.com/ayushbhole/PowerBi_projects/tree/main/Super_Store" target="_blank" class="inline-block bg-[#66fcf1] text-black font-medium px-4 py-2 rounded-lg hover:bg-[#45c9c2] transition">
+            📂 View on GitHub
+          </a>
+        </div>
+  
+        <!-- Project Card -->
+        <div class="bg-[#1f2833] rounded-xl shadow-lg p-8 hover:scale-105 transition transform duration-300">
+          <h3 class="text-2xl font-semibold text-[#66fcf1] mb-4 text-left">Customer Churn Pipeline</h3>
+          <p class="mb-3">End-to-end ML pipeline with feature store, CI/CD for models, and drift monitoring.</p>
+          <p class="text-sm text-gray-400 mb-4">Tech: MLflow, Seldon, Prometheus</p>
+          <a href="#contact" class="inline-block bg-[#66fcf1] text-black font-medium px-4 py-2 rounded-lg hover:bg-[#45c9c2] transition">
+            ⚡ Explore Project
+          </a>
+        </div>
+  
+        <!-- Project Card -->
+        <div class="bg-[#1f2833] rounded-xl shadow-lg p-8 hover:scale-105 transition transform duration-300">
+          <h3 class="text-2xl font-semibold text-[#66fcf1] mb-4 text-left">Data Quality Framework</h3>
+          <p class="mb-3">Implemented automated validation with Great Expectations integrated with Slack alerts.</p>
+          <p class="text-sm text-gray-400 mb-4">Tech: Great Expectations, Airflow</p>
+          <a href="#contact" class="inline-block bg-[#66fcf1] text-black font-medium px-4 py-2 rounded-lg hover:bg-[#45c9c2] transition">
+            ✅ Details
+          </a>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+<!-- Chatbot Floating Button with Custom Image -->
+<div id="chatbot-button" 
+     class="fixed bottom-6 right-6 w-14 h-14 cursor-pointer z-50">
+  <img src="/static/images/bot.png" 
+       alt="Chatbot" 
+       class="w-14 h-14 rounded-full shadow-lg hover:scale-110 transition" />
+</div>
+
+<!-- Chatbot Pane -->
+<div id="chatbot-pane" 
+     class="fixed bottom-0 right-6 w-[28rem] h-[32rem] bg-[#1f2833] text-[#c5c6c7] rounded-t-xl shadow-2xl 
+            transform translate-y-full transition-transform duration-300 flex flex-col z-40">
+
+  
+  <!-- Header -->
+  <div class="bg-[#45a29e] text-black font-semibold px-4 py-3 flex justify-between items-center rounded-t-xl">
+    <span>Chatbot</span>
+    <button id="close-chatbot" class="text-lg font-bold hover:text-red-600">&times;</button>
+  </div>
+  
+  <!-- Messages -->
+  <!-- Messages -->
+<div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-3 h-64">
+  <div class="bg-gray-700 text-white px-4 py-3 rounded-lg text-sm max-w-[90%]">
+    👋 Hi! How can I help you today?
+  </div>
+</div>
+
+  
+  <!-- Input -->
+  <div class="border-t border-gray-600 flex items-center p-2">
+    <input id="chat-input" type="text" placeholder="Type a message..." 
+           class="flex-1 bg-transparent text-sm text-white outline-none px-2" />
+    <button id="send-message" 
+            class="bg-[#45a29e] text-black px-3 py-1 rounded-lg ml-2 hover:scale-105 transition">
+      ➤
+    </button>
+  </div>
+</div>
+
+<script>
+  const chatbotBtn = document.getElementById('chatbot-button');
+  const chatbotPane = document.getElementById('chatbot-pane');
+  const closeChatbot = document.getElementById('close-chatbot');
+  const sendBtn = document.getElementById('send-message');
+  const input = document.getElementById('chat-input');
+  const messages = document.getElementById('chat-messages');
+
+  // Open/Close
+  chatbotBtn.addEventListener('click', () => {
+    chatbotPane.classList.remove('translate-y-full');
+    chatbotPane.classList.add('translate-y-0');
+  });
+
+  closeChatbot.addEventListener('click', () => {
+    chatbotPane.classList.add('translate-y-full');
+    chatbotPane.classList.remove('translate-y-0');
+  });
+
+  // Send message
+  sendBtn.addEventListener('click', sendMessage);
+  input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+  });
+
+  function sendMessage() {
+    const text = input.value.trim();
+    if (!text) return;
+
+    // User message
+    const userMsg = document.createElement('div');
+    userMsg.className = "bg-[#45a29e] text-black px-3 py-2 rounded-lg text-sm self-end max-w-[75%]";
+    userMsg.textContent = text;
+    messages.appendChild(userMsg);
+    messages.scrollTop = messages.scrollHeight;
+    input.value = "";
+
+    // Send message to Django backend
+    fetch("/chatbot/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": getCookie("csrftoken")  // csrf token helper
+      },
+      body: JSON.stringify({ message: text })
+    })
+    .then(res => res.json())
+    .then(data => {
+      const botMsg = document.createElement('div');
+      botMsg.className = "bg-gray-700 text-white px-3 py-2 rounded-lg text-sm self-start max-w-[75%]";
+      botMsg.textContent = data.reply;
+      messages.appendChild(botMsg);
+      messages.scrollTop = messages.scrollHeight;
+    })
+    .catch(err => console.error("Error:", err));
+  }
+
+  // Helper function for CSRF token
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+</script>
+
+  
+
+  
+
+  {% comment %} <section id="contact" class="py-16 px-4 sm:px-6 bg-[#0b0c10]">
+    <div class="max-w-2xl mx-auto bg-[#1f2833] text-[#c5c6c7] p-8 sm:p-10 rounded-xl shadow-lg"> 
+      <div class="text-center mb-8 space-y-4">
+        <h1 class="text-4xl font-bold text-[#66fcf1]">Contact</h1><br>
+        <p class="text-base text-[#c5c6c7]">Want to get in touch? Send me a message below.</p>
+        <br>
+      </div>
+  
+      <form method="POST" class="space-y-6">
+        {% csrf_token %}
+
+        <!-- Full Name -->
+        <div class="floating-group">
+          <input type="text" id="id_name" name="name" placeholder=" " required>
+          <label for="id_name">Full Name</label>
+          {% if errors.name %}
+            <p class="text-red-500 text-sm">{{ errors.name.0 }}</p>
+          {% endif %}
+        </div>
+        
+        <!-- Email -->
+        <div class="floating-group">
+          <input type="email" id="id_email" name="email" placeholder=" " required>
+          <label for="id_email">Email Address</label>
+          {% if errors.email %}
+            <p class="text-red-500 text-sm">{{ errors.email.0 }}</p>
+          {% endif %}
+        </div>
+        
+        <!-- Message -->
+        <div class="floating-group">
+          <textarea id="id_message" name="message" rows="5" placeholder=" " required></textarea>
+          <label for="id_message">Message</label>
+  
+        <div class="form-actions flex flex-col sm:flex-row gap-4 items-center">
+          {% if success %}
+          <p id="success-message" class="text-green-500 text-center text-sm">
+            ✅ Your message has been sent successfully!
+          </p>
+
+          <script>
+            // Remove ?success=1 from the URL without reloading
+            if (window.history.replaceState) {
+              const url = new URL(window.location);
+              url.searchParams.delete("success");
+              window.history.replaceState({}, document.title, url.pathname);
+            }
+          </script>
+          {% endif %}
+      
+          <div class="flex gap-4 order-1 sm:order-2">
+            <button type="submit" class="btn">Send</button>
+            <a href="mailto:youremail@example.com" class="btn ghost">Email Directly</a><br>
+          </div>
+          <br>
+             
+          <!-- Social Links inside form (replace your current block) -->
+      <div class="text-center mt-8" id="contact-socials">
+        <p class="font-semibold text-[#66fcf1] mb-6">Find me on:</p><br>
+
+        <!-- container: flex + wrap + fallback spacing -->
+        <div class="flex justify-center flex-wrap" style="gap:10px; row-gap:20px; column-gap:10px;">
+          <!-- each anchor has horizontal margin fallback and fixed width so items don't collapse -->
+          <a href="https://linkedin.com" target="_blank"
+            class="flex flex-col items-center group" style="margin:0 12px; width:80px; text-align:center;">
+            <img src="/static/icons/linkedin.png"
+                alt="LinkedIn"
+                class="rounded-full transition-transform duration-300 group-hover:scale-110"
+                style="width:48px; height:48px; object-fit:contain;" />
+            <span class="mt-2 text-sm text-[#c5c6c7] transition-colors duration-300 group-hover:text-[#66fcf1]">
+              LinkedIn
+            </span>
+          </a>
+
+          <a href="https://github.com" target="_blank"
+            class="flex flex-col items-center group" style="margin:0 12px; width:80px; text-align:center;">
+            <img src="/static/icons/github.png"
+                alt="GitHub"
+                class="rounded-full transition-transform duration-300 group-hover:scale-110"
+                style="width:48px; height:48px; object-fit:contain;" />
+            <span class="mt-2 text-sm text-[#c5c6c7] transition-colors duration-300 group-hover:text-[#66fcf1]">
+              GitHub
+            </span>
+          </a>
+
+          <a href="mailto:youremail@example.com"
+            class="flex flex-col items-center group" style="margin:0 12px; width:80px; text-align:center;">
+            <img src="/static/icons/gmail.png"
+                alt="Gmail"
+                class="rounded-full transition-transform duration-300 group-hover:scale-110"
+                style="width:48px; height:48px; object-fit:contain;" />
+            <span class="mt-2 text-sm text-[#c5c6c7] transition-colors duration-300 group-hover:text-[#66fcf1]">
+              Gmail
+            </span>
+          </a>
+
+          <a href="https://wa.me/1234567890" target="_blank"
+            class="flex flex-col items-center group" style="margin:0 12px; width:80px; text-align:center;">
+            <img src="/static/icons/whatsapp.png"
+                alt="WhatsApp"
+                class="rounded-full transition-transform duration-300 group-hover:scale-110"
+                style="width:48px; height:48px; object-fit:contain;" />
+            <span class="mt-2 text-sm text-[#c5c6c7] transition-colors duration-300 group-hover:text-[#66fcf1]">
+              WhatsApp
+            </span>
+          </a>
+
+          <a href="https://instagram.com" target="_blank"
+            class="flex flex-col items-center group" style="margin:0 12px; width:80px; text-align:center;">
+            <img src="/static/icons/instagram.png"
+                alt="Instagram"
+                class="rounded-full transition-transform duration-300 group-hover:scale-110"
+                style="width:48px; height:48px; object-fit:contain;" />
+            <span class="mt-2 text-sm text-[#c5c6c7] transition-colors duration-300 group-hover:text-[#66fcf1]">
+              Instagram
+            </span>
+          </a>
+        </div>
+      </div>
+      <br>
+    </div>
+    </form>
+  </div>
+  </section> {% endcomment %}
+
+
+
+
+  
+  <section id="contact" class="py-16 px-4 sm:px-6 bg-[#0b0c10]">
+    <div class="max-w-2xl mx-auto bg-[#1f2833] text-[#c5c6c7] p-8 sm:p-10 rounded-xl shadow-lg animate-fade-in-up"> 
+  
+      <!-- Header -->
+      <div class="text-center mb-8 space-y-4">
+        <h1 class="text-4xl font-bold text-[#66fcf1]">Contact</h1>
+        <p class="text-base text-[#c5c6c7]">Want to get in touch? Send me a message below.</p>
+        <br>
+      </div>
+  
+      <!-- Form -->
+      <form method="POST" class="space-y-6">
+        {% csrf_token %}
+  
+        <!-- Full Name -->
+        <div class="floating-group">
+          <input type="text" id="id_name" name="name" placeholder=" " required>
+          <label for="id_name">Full Name</label>
+          {% if errors.name %}
+            <p class="text-red-500 text-sm">{{ errors.name.0 }}</p>
+          {% endif %}
+        </div>
+        
+        <!-- Email -->
+        <div class="floating-group">
+          <input type="email" id="id_email" name="email" placeholder=" " required>
+          <label for="id_email">Email Address</label>
+          {% if errors.email %}
+            <p class="text-red-500 text-sm">{{ errors.email.0 }}</p>
+          {% endif %}
+        </div>
+        
+        <!-- Message -->
+        <div class="floating-group">
+          <textarea id="id_message" name="message" rows="5" placeholder=" " required></textarea>
+          <label for="id_message">Message</label>
+        </div>
+  
+        <!-- Success Message -->
+        {% if success %}
+        <p id="success-message" class="text-green-500 text-center text-sm">
+          ✅ Your message has been sent successfully!
+        </p>
+        <script>
+          if (window.history.replaceState) {
+            const url = new URL(window.location);
+            url.searchParams.delete("success");
+            window.history.replaceState({}, document.title, url.pathname);
+          }
+        </script>
+        {% endif %}
+  
+        <!-- Buttons -->
+        <div class="form-actions flex gap-4 justify-center mt-4">
+          <button type="submit" class="btn">Send</button>
+          <a href="mailto:youremail@example.com" class="btn ghost">Email Directly</a>
+        </div>
+      </form>
+      <!-- Social Icons -->
+      <div class="text-center mt-4" id="contact-socials"><br>
+        <p class="font-semibold text-[#66fcf1] mb-6 text-2xl">Find me on:</p>
+        <div class="flex justify-center flex-wrap" style="gap:30px; row-gap:10px; column-gap:30px;"> 
+            <a href="https://linkedin.com" target="_blank" class="flex flex-col items-center group social-item">
+              <img src="/static/icons/linkedin.png" alt="LinkedIn"
+                class="rounded-full social-icon"
+                style="width:48px; height:48px; object-fit:contain;" />
+              <span class="mt-2 text-sm text-[#c5c6c7] group-hover:text-[#66fcf1]">LinkedIn</span>
+            </a>
+    
+            <a href="https://github.com" target="_blank" class="flex flex-col items-center group social-item">
+              <img src="/static/icons/github.png" alt="GitHub"
+                class="rounded-full social-icon"
+                style="width:48px; height:48px; object-fit:contain;" />
+              <span class="mt-2 text-sm text-[#c5c6c7] group-hover:text-[#66fcf1]">GitHub</span>
+            </a>
+    
+            <a href="mailto:ayushbhole2602@gmail.com" class="flex flex-col items-center group social-item">
+              <img src="/static/icons/gmail.png" alt="Gmail"
+                class="rounded-full social-icon"
+                style="width:48px; height:48px; object-fit:contain;" />
+              <span class="mt-2 text-sm text-[#c5c6c7] group-hover:text-[#66fcf1]">Gmail</span>
+            </a>
+    
+            <a href="https://wa.me/7057380118" target="_blank" class="flex flex-col items-center group social-item">
+              <img src="/static/icons/whatsapp.png" alt="WhatsApp"
+                class="rounded-full social-icon"
+                style="width:48px; height:48px; object-fit:contain;" />
+              <span class="mt-2 text-sm text-[#c5c6c7] group-hover:text-[#66fcf1]">WhatsApp</span>
+            </a>
+    
+            <a href="https://instagram.com" target="_blank" class="flex flex-col items-center group social-item">
+              <img src="/static/icons/instagram.png" alt="Instagram"
+                class="rounded-full social-icon"
+                style="width:48px; height:48px; object-fit:contain;" />
+              <span class="mt-2 text-sm text-[#c5c6c7] group-hover:text-[#66fcf1]">Instagram</span>
+            </a>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </section>
+  
+
+  <footer>
+    <p>© <span id="year"></span> Sanjyot — Data Scientist & Data Engineer</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // smooth scroll
+    document.querySelectorAll('a[href^=\"#\"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const id=a.getAttribute('href');
+        if(id.length>1){e.preventDefault();document.querySelector(id).scrollIntoView({behavior:'smooth'})}
+      });
+    });
+    // fake form send
+    document.getElementById('contactForm').addEventListener('submit',e=>{
+      e.preventDefault();
+      const name=document.getElementById('name').value;
+      const email=document.getElementById('email').value;
+      const msg=document.getElementById('message').value;
+      document.getElementById('formMsg').textContent='Opening mail client...';
+      const subject=encodeURIComponent('Contact from '+name);
+      const body=encodeURIComponent(msg+'\\nFrom: '+name+' ('+email+')');
+      window.location.href='mailto:youremail@example.com?subject='+subject+'&body='+body;
+    });
+  </script>
+</body>
+</html>

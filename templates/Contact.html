@@ -1,0 +1,528 @@
+{% comment %} {% include "header.html" %}
+{% load static tailwind_tags %}
+{% tailwind_css %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0b0c10;
+    }
+  </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-6">
+  <div class="bg-[#1f2833] text-[#c5c6c7] p-8 sm:p-10 rounded-xl shadow-lg w-full max-w-2xl">
+
+    <!-- Title -->
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-[#66fcf1] mb-2">Contact</h1>
+      <p class="text-sm text-[#c5c6c7]">Want to get in touch? Send me a message below.</p>
+    </div>
+
+    <!-- Contact Form -->
+    <form id="contact-form" class="space-y-6">
+      <div>
+        <input type="text" id="name" name="name" placeholder="Name" required
+          class="mt-1 block w-full px-4 py-3 bg-[#0b0c10] border border-[#45a29e] rounded-lg shadow-sm focus:outline-none focus:ring-[#45a29e] focus:border-[#45a29e] placeholder-gray-500 transition-all duration-300">
+      </div>
+
+      <div>
+        <input type="email" id="email" name="email" placeholder="Email" required
+          class="mt-1 block w-full px-4 py-3 bg-[#0b0c10] border border-[#45a29e] rounded-lg shadow-sm focus:outline-none focus:ring-[#45a29e] focus:border-[#45a29e] placeholder-gray-500 transition-all duration-300">
+      </div>
+
+      <div>
+        <input type="text" id="subject" name="subject" placeholder="Subject"
+          class="mt-1 block w-full px-4 py-3 bg-[#0b0c10] border border-[#45a29e] rounded-lg shadow-sm focus:outline-none focus:ring-[#45a29e] focus:border-[#45a29e] placeholder-gray-500 transition-all duration-300">
+      </div>
+
+      <div>
+        <textarea id="message" name="message" rows="5" placeholder="Message" required
+          class="mt-1 block w-full px-4 py-3 bg-[#0b0c10] border border-[#45a29e] rounded-lg shadow-sm focus:outline-none focus:ring-[#45a29e] focus:border-[#45a29e] placeholder-gray-500 resize-none transition-all duration-300"></textarea>
+      </div>
+
+      <!-- reCAPTCHA-like Checkbox -->
+      <div class="flex items-center space-x-4">
+        <input type="checkbox" id="recaptcha" name="recaptcha"
+          class="form-checkbox text-[#66fcf1] w-5 h-5 bg-[#0b0c10] border-2 border-[#45a29e] rounded-md transition-all duration-300" required>
+        <label for="recaptcha" class="flex items-center text-sm font-medium text-[#c5c6c7]">
+          <span class="mr-2">I'm not a robot</span>
+          <svg class="w-6 h-6 text-[#c5c6c7]" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2.45 14.55l-3.23-3.23c-.4-.4-.4-1.04 0-1.44l.8-.8c.4-.4 1.04-.4 1.44 0L9.5 12.56l5.06-5.06c.4-.4 1.04-.4 1.44 0l.8.8c.4.4.4 1.04 0 1.44l-6.5 6.5c-.4.4-1.04.4-1.44 0z" />
+          </svg>
+        </label>
+      </div>
+
+      <!-- Status Message -->
+      <div id="status-message"
+        class="text-sm font-medium text-center py-2 rounded-md transition-all duration-300 opacity-0 h-0 overflow-hidden"></div>
+
+      <!-- Submit Button -->
+      <div>
+        <button type="submit"
+          class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-[#66fcf1] hover:bg-[#45a29e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#1f2833] focus:ring-[#66fcf1] transition-all duration-300">
+          Send Message
+        </button>
+      </div>
+    </form>
+
+    <!-- Social Media Section -->
+<div class="text-center mt-10">
+    <h2 class="text-lg font-semibold text-[#66fcf1] mb-4">Find me on</h2>
+    <div class="flex justify-center space-x-6">
+      
+      <!-- WhatsApp -->
+      <a href="https://wa.me/your-number" target="_blank" class="transition hover:scale-110">
+        <img src="{% static 'images/icons/whatsapp.png' %}" alt="WhatsApp" class="w-10 h-10">
+      </a>
+      
+      <!-- Instagram -->
+      <a href="https://instagram.com/your-username" target="_blank" class="transition hover:scale-110">
+        <img src="{% static 'images/icons/instagram.png' %}" alt="Instagram" class="w-10 h-10">
+      </a>
+      
+      <!-- LinkedIn -->
+      <a href="https://linkedin.com/in/your-username" target="_blank" class="transition hover:scale-110">
+        <img src="{% static 'images/icons/linkedin.png' %}" alt="LinkedIn" class="w-10 h-10">
+      </a>
+      
+      <!-- GitHub -->
+      <a href="https://github.com/your-username" target="_blank" class="transition hover:scale-110">
+        <img src="{% static 'images/icons/github.png' %}" alt="GitHub" class="w-10 h-10">
+      </a>
+      
+      <!-- HackerRank -->
+      <a href="https://www.hackerrank.com/your-username" target="_blank" class="transition hover:scale-110">
+        <img src="{% static 'images/icons/hackerrank.png' %}" alt="HackerRank" class="w-10 h-10">
+      </a>
+  
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contact-form');
+      const statusMessage = document.getElementById('status-message');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        if (!name || !email || !message) {
+          showStatusMessage('Please fill out all required fields.', 'bg-red-500 text-white');
+          return;
+        }
+
+        showStatusMessage('Sending message...', 'bg-yellow-500 text-black');
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        showStatusMessage('Message sent successfully! We will get back to you soon.', 'bg-green-500 text-white');
+        form.reset();
+      });
+
+      function showStatusMessage(message, classes) {
+        statusMessage.textContent = message;
+        statusMessage.className = `text-sm font-medium text-center py-2 rounded-md transition-all duration-300 opacity-100 h-auto ${classes}`;
+      }
+    });
+  </script>
+</body>
+</html> {% endcomment %}
+
+
+
+
+
+
+
+
+{% comment %} 
+{% include "header.html" %}
+{% load static tailwind_tags %}
+{% tailwind_css %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0b0c10;
+    }
+  </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-6">
+  <div class="bg-[#1f2833] text-[#c5c6c7] p-8 sm:p-10 rounded-xl shadow-lg w-full max-w-2xl">
+
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-[#66fcf1] mb-2">Contact</h1>
+      <p class="text-sm text-[#c5c6c7]">Want to get in touch? Send me a message below.</p>
+    </div>
+
+    <form method="POST" class="space-y-6">
+      {% csrf_token %}
+      <div>
+        <input type="text" name="name" placeholder="Your Name" required
+          class="mt-1 block w-full px-4 py-3 bg-[#0b0c10] border border-[#45a29e] rounded-lg shadow-sm focus:outline-none focus:ring-[#45a29e] focus:border-[#45a29e] placeholder-gray-500 transition-all duration-300">
+      </div>
+
+      <div>
+        <input type="email" name="email" placeholder="Your Email" required
+          class="mt-1 block w-full px-4 py-3 bg-[#0b0c10] border border-[#45a29e] rounded-lg shadow-sm focus:outline-none focus:ring-[#45a29e] focus:border-[#45a29e] placeholder-gray-500 transition-all duration-300">
+      </div>
+
+      <div>
+        <textarea name="message" rows="5" placeholder="Your Message" required
+          class="mt-1 block w-full px-4 py-3 bg-[#0b0c10] border border-[#45a29e] rounded-lg shadow-sm focus:outline-none focus:ring-[#45a29e] focus:border-[#45a29e] placeholder-gray-500 resize-none transition-all duration-300"></textarea>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <input type="checkbox" id="recaptcha" name="recaptcha"
+          class="form-checkbox text-[#66fcf1] w-5 h-5 bg-[#0b0c10] border-2 border-[#45a29e] rounded-md transition-all duration-300" required>
+        <label for="recaptcha" class="flex items-center text-sm font-medium text-[#c5c6c7]">
+          <span class="mr-2">I'm not a robot</span>
+          <svg class="w-6 h-6 text-[#c5c6c7]" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2.45 14.55l-3.23-3.23c-.4-.4-.4-1.04 0-1.44l.8-.8c.4-.4 1.04-.4 1.44 0L9.5 12.56l5.06-5.06c.4-.4 1.04-.4 1.44 0l.8.8c.4.4.4 1.04 0 1.44l-6.5 6.5c-.4.4-1.04.4-1.44 0z" />
+          </svg>
+        </label>
+      </div>
+
+      {% if success %}
+        <p style="color: green; text-align: center; font-size: 14px;">Your message has been sent successfully!</p>
+      {% endif %}
+
+      <div>
+        <button type="submit"
+          class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-[#66fcf1] hover:bg-[#45a29e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#1f2833] focus:ring-[#66fcf1] transition-all duration-300">
+          Send
+        </button>
+      </div>
+    </form>
+
+    <div class="text-center mt-10">
+      <h2 class="text-lg font-semibold text-[#66fcf1] mb-4">Find me on</h2>
+      <div class="flex justify-center space-x-6">
+        
+        <a href="https://wa.me/your-number" target="_blank" class="transition hover:scale-110">
+          <img src="{% static 'images/icons/whatsapp.png' %}" alt="WhatsApp" class="w-10 h-10">
+        </a>
+        
+        <a href="https://instagram.com/your-username" target="_blank" class="transition hover:scale-110">
+          <img src="{% static 'images/icons/instagram.png' %}" alt="Instagram" class="w-10 h-10">
+        </a>
+        
+        <a href="https://linkedin.com/in/your-username" target="_blank" class="transition hover:scale-110">
+          <img src="{% static 'images/icons/linkedin.png' %}" alt="LinkedIn" class="w-10 h-10">
+        </a>
+        
+        <a href="https://github.com/your-username" target="_blank" class="transition hover:scale-110">
+          <img src="{% static 'images/icons/github.png' %}" alt="GitHub" class="w-10 h-10">
+        </a>
+        
+        <a href="https://www.hackerrank.com/your-username" target="_blank" class="transition hover:scale-110">
+          <img src="{% static 'images/icons/hackerrank.png' %}" alt="HackerRank" class="w-10 h-10">
+        </a>
+    
+      </div>
+    </div>
+  </div>
+</body>
+</html>  {% endcomment %}
+
+
+
+
+
+ 
+
+
+ {% load static tailwind_tags %}
+ {% tailwind_css %}
+ 
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Contact Us</title>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+     <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <style>
+      body {
+          font-family: 'Inter', sans-serif;
+          background-color: #0b0c10;
+      }
+  
+      /* Custom CSS for the floating label effect */
+      .input-container {
+          position: relative;
+      }
+  
+      .input-container input,
+      .input-container textarea {
+          background-color: #0b0c10;
+          border: 1px solid #45a29e;
+          border-radius: 8px;
+          padding: 1rem;
+          color: #c5c6c7;
+          width: 100%;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          box-shadow: 0 0 0 0 transparent;
+      }
+      
+      .input-container textarea {
+          resize: vertical;
+      }
+  
+      .input-container label {
+          position: absolute;
+          top: 1rem;
+          left: 1rem;
+          color: #8e9092;
+          transition: all 0.3s ease;
+          pointer-events: none;
+      }
+  
+      /* Animation when input is focused or has content */
+      .input-container input:focus,
+      .input-container textarea:focus {
+          outline: none;
+          border-color: #66fcf1;
+          box-shadow: 0 0 0 2px rgba(102, 252, 241, 0.5);
+      }
+  
+      /* Moves the label up and removes the background */
+      .input-container input:focus + label,
+      .input-container textarea:focus + label,
+      .input-container input:not(:placeholder-shown) + label,
+      .input-container textarea:not(:placeholder-shown) + label {
+          transform: translateY(-1.5rem) scale(0.85);
+          left: 0.5rem;
+          background-color: transparent;
+          padding: 0 0.5rem;
+          color: #66fcf1;
+          z-index: 10;
+      }
+  
+      /* Styles for Django form fields and errors */
+      ul.errorlist {
+          list-style: none;
+          padding: 0;
+          margin-top: 0.25rem;
+      }
+      ul.errorlist li {
+          color: #ef4444;
+          font-size: 0.875rem;
+      }
+      
+      {% comment %} /* Captcha Specific Styles */
+      .captcha-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 1rem;
+          max-width: 250px; /* Constrain the container's max-width */
+          margin-left: auto;
+          margin-right: auto;
+      }
+  
+      .captcha-container .captcha {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+      }
+  
+      .captcha-container .captcha img {
+          border-radius: 8px;
+          border: 2px solid #45a29e;
+          margin-bottom: 0.5rem;
+          width: 150px; /* Adjusted: Fixed width for the image */
+          height: auto; /* Adjusted: Maintain aspect ratio */
+          display: block;
+      } {% endcomment %}
+      /* Ensure the captcha container is a flexbox */
+      .captcha-container {
+          display: flex;
+          align-items: center; /* Vertically aligns the items */
+          justify-content: center; /* Horizontally centers the items */
+          margin-top: 1rem;
+          max-width: 250px;
+          margin-left: auto;
+          margin-right: auto;
+      }
+      
+      /* Style the captcha image */
+      .captcha-container img {
+          border-radius: 8px;
+          border: 2px solid #45a29e;
+          margin-right: 0.5rem; /* Add space between image and input */
+          width: 150px;
+          height: auto;
+      }
+      
+      /* Style the captcha input field */
+      .captcha-container input[type="text"] {
+          background-color: #0b0c10;
+          border: 1px solid #45a29e;
+          border-radius: 8px;
+          padding: 0.75rem 1rem;
+          color: #c5c6c7;
+          width: 100%;
+          transition: all 0.3s ease;
+      }
+      
+      /* This is a general rule for form inputs, keep it as it is */
+      .input-container input:not(:placeholder-shown) + label,
+      .input-container textarea:not(:placeholder-shown) + label {
+          transform: translateY(-1.5rem) scale(0.85);
+          left: 0.5rem;
+          background-color: transparent;
+          padding: 0 0.5rem;
+          color: #66fcf1;
+          z-index: 10;
+      }
+      
+      /* Specific styles for the captcha input field using its unique class */
+      .captcha-input-field {
+          text-align: center;
+          background-color: #0b0c10;
+          border: 1px solid #45a29e; /* Adjusted: Added border for the input */
+          border-radius: 8px;
+          padding: 0.75rem 1rem;
+          color: #c5c6c7;
+          width: 100%;
+          max-width: 250px;
+          margin-top: 0.5rem;
+          transition: all 0.3s ease;
+      }
+  
+      /* Focus styles for captcha input */
+      .captcha-input-field:focus {
+          outline: none;
+          border-color: #66fcf1;
+          box-shadow: 0 0 0 2px rgba(102, 252, 241, 0.5);
+      }
+  </style>
+  
+  </head>
+ 
+ <body class="flex items-center justify-center min-h-screen p-4 sm:p-6">
+  {% include "header.html" %}
+     <div class="bg-[#1f2833] text-[#c5c6c7] p-8 sm:p-10 rounded-xl shadow-lg w-full max-w-2xl">
+ 
+         <div class="text-center mb-8">
+             <h1 class="text-3xl font-bold text-[#66fcf1] mb-2">Contact</h1>
+             <p class="text-sm text-[#c5c6c7]">Want to get in touch? Send me a message below.</p>
+         </div>
+ 
+         <form method="POST" class="space-y-6">
+            {% csrf_token %}
+            
+            <div class="input-container">
+                 <input type="text" id="id_name" name="name" required placeholder=" ">
+                 <label for="id_name">Full Name</label>
+                 {% if form.name.errors %}
+                     <ul class="errorlist">{% for error in form.name.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                 {% endif %}
+            </div>
+             <div class="input-container">
+                 <input type="email" id="id_email" name="email" required placeholder=" ">
+                 <label for="id_email">Email Address</label>
+                 {% if form.email.errors %}
+                     <ul class="errorlist">{% for error in form.email.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                 {% endif %}
+             </div>
+             
+             <div class="input-container">
+                 <textarea id="id_message" name="message" rows="5" required placeholder=" "></textarea>
+                 <label for="id_message">Message</label>
+                 {% if form.message.errors %}
+                     <ul class="errorlist">{% for error in form.message.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                 {% endif %}
+             </div>
+ 
+             <div class="captcha-container">
+                 {{ form.captcha }}
+                 {% if form.captcha.errors %}
+                     <ul class="errorlist">{% for error in form.captcha.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                 {% endif %}
+             </div> 
+             {% comment %} <div class="captcha-container">
+              <div class="captcha">
+                  {{ form.captcha.errors }}
+                  <img src="{{ form.captcha.image_url }}" alt="Captcha image">
+                  {{ form.captcha.as_hidden }}
+              </div>
+          
+              <div class="input-container">
+                  {{ form.captcha.text_field }}
+                  <label for="{{ form.captcha.text_field.id_for_label }}">Captcha</label>
+              </div>
+             </div> {% endcomment %}
+             
+ 
+             {% if form.non_field_errors %}
+                 <div class="text-red-500 text-sm p-2 rounded">
+                     {{ form.non_field_errors }}
+                 </div>
+             {% endif %}
+ 
+             {% if success %}
+                 <p style="color: green; text-align: center; font-size: 14px;">Your message has been sent successfully!</p>
+             {% endif %}
+ 
+             <div>
+                 <button type="submit"
+                     class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-[#66fcf1] hover:bg-[#45a29e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#1f2833] focus:ring-[#66fcf1] transition-all duration-300">
+                     Send
+                 </button>
+             </div>
+         </form>
+         
+         
+         <div class="text-center mt-10">
+             <h2 class="text-lg font-semibold text-[#66fcf1] mb-4">Find me on</h2>
+             <div class="flex justify-center space-x-6">
+                 <a href="https://wa.me/your-number" target="_blank" class="transition hover:scale-110">
+                     <img src="{% static 'images/icons/whatsapp.png' %}" alt="WhatsApp" class="w-10 h-10">
+                 </a>
+                 <a href="https://instagram.com/your-username" target="_blank" class="transition hover:scale-110">
+                     <img src="{% static 'images/icons/instagram.png' %}" alt="Instagram" class="w-10 h-10">
+                 </a>
+                 <a href="https://linkedin.com/in/your-username" target="_blank" class="transition hover:scale-110">
+                     <img src="{% static 'images/icons/linkedin.png' %}" alt="LinkedIn" class="w-10 h-10">
+                 </a>
+                 <a href="https://github.com/your-username" target="_blank" class="transition hover:scale-110">
+                     <img src="{% static 'images/icons/github.png'}" alt="GitHub" class="w-10 h-10">
+                 </a>
+                 <a href="https://www.hackerrank.com/your-username" target="_blank" class="transition hover:scale-110">
+                     <img src="{% static 'images/icons/hackerrank.png' %}" alt="HackerRank" class="w-10 h-10">
+                 </a>
+             </div>
+         </div>
+     </div>
+ </body>
+ </html> 

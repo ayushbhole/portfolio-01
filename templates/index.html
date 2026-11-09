@@ -1,0 +1,282 @@
+
+{% load static tailwind_tags %}
+{% load static %}
+{% tailwind_css %}
+
+    {% comment %} <section id="home" class="h-screen flex flex-col items-center justify-center bg-[#0A192F] text-center px-5">
+      <img src="/static/images/profile1.JPG" class="rounded-full w-40 h-40 mb-6 shadow-lg" alt="profile">
+      <h1 class="text-white text-4xl font-bold">Ayush Bhole</h1>
+      <h3 class="text-[#64FFDA] text-xl mt-2">Data Scientist & Data Engineer</h3>
+      <p class="text-gray-300 mt-4 max-w-lg">I design data-driven solutions using AI & Machine Learning.</p>
+      <div class="mt-6 flex space-x-4">
+        <a href="#projects" class="px-6 py-2 rounded-lg bg-[#64FFDA] text-[#0A192F] font-semibold hover:bg-teal-400">View Projects</a>
+        <a href="/static/resume.pdf" class="px-6 py-2 rounded-lg border border-gray-300 text-gray-300 hover:text-white hover:border-[#64FFDA]">Download CV</a>
+      </div>
+    </section>  {% endcomment %}
+{% comment %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    {% load static tailwind_tags %}
+    {% tailwind_css %}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0c10;
+        }
+        /* Any other custom styles can go here */
+    </style>
+</head>
+<body>
+    {% include "header.html" %} 
+
+    <section id="home" class="h-screen flex flex-col items-center justify-center bg-[#0A192F] text-center px-5">
+        <img src="/static/images/profile1.JPG" class="rounded-full w-40 h-40 mb-6 shadow-lg" alt="profile">
+        <h1 class="text-white text-4xl font-bold">Ayush Bhole</h1>
+        <h3 class="text-[#64FFDA] text-xl mt-2">Data Scientist & Data Engineer</h3>
+        <p class="text-gray-300 mt-4 max-w-lg">I design data-driven solutions using AI & Machine Learning.</p>
+        <div class="mt-6 flex space-x-4">
+            <a href="#projects" class="px-6 py-2 rounded-lg bg-[#64FFDA] text-[#0A192F] font-semibold hover:bg-teal-400">View Projects</a>
+            <a href="/static/resume.pdf" class="px-6 py-2 rounded-lg border border-gray-300 text-gray-300 hover:text-white hover:border-[#64FFDA]">Download CV</a>
+        </div>
+    </section>
+
+</body>
+</html> {% endcomment %}
+
+{% comment %} 
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    {% tailwind_css %}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0c10;
+        }
+    </style>
+</head>
+<body>
+
+    {% include "header.html" %}
+
+    <section id="home" class="h-screen flex flex-col items-center justify-center bg-[#0A192F] text-center px-5 pt-24">
+        <img src="{% static 'images/profile1.JPG' %}" class="rounded-full w-40 h-40 mb-6 shadow-lg" alt="profile">
+        <h1 class="text-white text-4xl font-bold">Ayush Bhole</h1>
+        <h3 class="text-[#64FFDA] text-xl mt-2">Data Scientist & Data Engineer</h3>
+        <p class="text-gray-300 mt-4 max-w-lg">I design data-driven solutions using AI & Machine Learning.</p>
+        <div class="mt-6 flex space-x-4">
+            <a href="#projects" class="px-6 py-2 rounded-lg bg-[#64FFDA] text-[#0A192F] font-semibold hover:bg-teal-400">View Projects</a>
+            <a href="{% static 'resume.pdf' %}" class="px-6 py-2 rounded-lg border border-gray-300 text-gray-300 hover:text-white hover:border-[#64FFDA]">Download CV</a>
+        </div>
+    </section>
+
+</body>
+</html> {% endcomment %}
+
+
+
+
+{% comment %} {% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    {% tailwind_css %}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0c10;
+        }
+    </style>
+</head>
+<body>
+
+    {% include "header.html" %}
+
+    <div class="pt-24">
+        <section id="home" class="h-screen flex flex-col items-center justify-center bg-[#0A192F] text-center px-5">
+            <img src="{% static 'images/profile1.JPG' %}" class="rounded-full w-40 h-40 mb-6 shadow-lg" alt="profile">
+            <h1 class="text-white text-4xl font-bold">Ayush Bhole</h1>
+            <h3 class="text-[#64FFDA] text-xl mt-2">Data Scientist & Data Engineer</h3>
+            <p class="text-gray-300 mt-4 max-w-lg">I design data-driven solutions using AI & Machine Learning.</p>
+            <div class="mt-6 flex space-x-4">
+                <a href="#projects" class="px-6 py-2 rounded-lg bg-[#64FFDA] text-[#0A192F] font-semibold hover:bg-teal-400">View Projects</a>
+                <a href="{% static 'resume.pdf' %}" class="px-6 py-2 rounded-lg border border-gray-300 text-gray-300 hover:text-white hover:border-[#64FFDA]">Download CV</a>
+            </div>
+        </section>
+    </div>  {% endcomment %}
+
+
+
+
+
+
+
+
+
+{% comment %} 
+    {% load static tailwind_tags %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio</title>
+        {% tailwind_css %}
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Inter', sans-serif;
+                background-color: #0b0c10;
+            }
+        </style>
+    </head>
+    <body>
+        {% include "header.html" %}
+
+        <div class="pt-24">
+            <section id="home" class="h-screen flex flex-col items-center justify-center bg-[#0A192F] text-center px-5">
+                <img src="{% static 'images/profile1.JPG' %}" class="rounded-full w-40 h-40 mb-6 shadow-lg" alt="profile">
+                <h1 class="text-white text-4xl font-bold">Ayush Bhole</h1>
+                <h3 class="text-[#64FFDA] text-xl mt-2">Data Scientist & Data Engineer</h3>
+                <p class="text-gray-300 mt-4 max-w-lg">I design data-driven solutions using AI & Machine Learning.</p>
+                <div class="mt-6 flex space-x-4">
+                    <a href="#projects" class="px-6 py-2 rounded-lg bg-[#64FFDA] text-[#0A192F] font-semibold hover:bg-teal-400">View Projects</a>
+                    <a href="{% static 'resume.pdf' %}" class="px-6 py-2 rounded-lg border border-gray-300 text-gray-300 hover:text-white hover:border-[#64FFDA]">Download CV</a>
+                </div>
+            </section>
+        </div>
+    
+    </body>
+    </html>
+</body>
+</html>  {% endcomment %}
+
+
+
+
+
+{% comment %} {% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    {% tailwind_css %}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0c10;
+        }
+    </style>
+</head>
+<body>
+
+    {% include "header.html" %}
+
+    <div class="pt-24">
+        <section id="home" class="h-screen flex flex-col items-center justify-center bg-[#0A192F] text-center px-5">
+            <img src="{% static 'images/profile1.JPG' %}" class="rounded-full w-40 h-40 mb-6 shadow-lg" alt="profile">
+            <h1 class="text-white text-4xl font-bold">Ayush Bhole</h1>
+            <h3 class="text-[#64FFDA] text-xl mt-2">Data Scientist & Data Engineer</h3>
+            <p class="text-gray-300 mt-4 max-w-lg">I design data-driven solutions using AI & Machine Learning.</p>
+            <div class="mt-6 flex space-x-4">
+                <a href="#projects" class="px-6 py-2 rounded-lg bg-[#64FFDA] text-[#0A192F] font-semibold hover:bg-teal-400">View Projects</a>
+                <a href="{% static 'resume.pdf' %}" class="px-6 py-2 rounded-lg border border-gray-300 text-gray-300 hover:text-white hover:border-[#64FFDA]">Download CV</a>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html> {% endcomment %}
+
+
+
+{% comment %} 
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    {% tailwind_css %}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0c10;
+        }
+    </style>
+</head>
+<body>
+
+    {% include "header.html" %}
+
+    <div class="pt-24">
+        <section id="home" class="h-screen flex flex-col items-center justify-center bg-[#0A192F] text-center px-5">
+            <img src="{% static 'images/profile1.JPG' %}" class="rounded-full w-40 h-40 mb-6 shadow-lg" alt="profile">
+            <h1 class="text-white text-4xl font-bold">Ayush Bhole</h1>
+            <h3 class="text-[#64FFDA] text-xl mt-2">Data Scientist & Data Engineer</h3>
+            <p class="text-gray-300 mt-4 max-w-lg">I design data-driven solutions using AI & Machine Learning.</p>
+            <div class="mt-6 flex space-x-4">
+                <a href="#projects" class="px-6 py-2 rounded-lg bg-[#64FFDA] text-[#0A192F] font-semibold hover:bg-teal-400">View Projects</a>
+                <a href="{% static 'resume.pdf' %}" class="px-6 py-2 rounded-lg border border-gray-300 text-gray-300 hover:text-white hover:border-[#64FFDA]">Download CV</a>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html> {% endcomment %}
+
+
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    {% tailwind_css %}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0c10;
+        }
+    </style>
+</head>
+<body>
+
+    {% include "header.html" %}
+
+    <div class="pt-24">
+        <section id="home" class="h-screen flex flex-col items-center justify-center bg-[#0A192F] text-center px-5">
+            <img src="{% static 'images/profile1.JPG' %}" class="rounded-full w-40 h-40 mb-6 shadow-lg" alt="profile">
+            <h1 class="text-white text-4xl font-bold">Ayush Bhole</h1>
+            <h3 class="text-[#64FFDA] text-xl mt-2">Data Scientist & Data Engineer</h3>
+            <p class="text-gray-300 mt-4 max-w-lg">I design data-driven solutions using AI & Machine Learning.</p>
+            <div class="mt-6 flex space-x-4">
+                <a href="#projects" class="px-6 py-2 rounded-lg bg-[#64FFDA] text-[#0A192F] font-semibold hover:bg-teal-400">View Projects</a>
+                <a href="{% static 'resume.pdf' %}" class="px-6 py-2 rounded-lg border border-gray-300 text-gray-300 hover:text-white hover:border-[#64FFDA]">Download CV</a>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
